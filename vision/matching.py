@@ -13,11 +13,14 @@
 		
 		pub=rospy.Publisher('match_result', first)
 		s="фйыцйчд".encode('cp1251')
+		dat=first()
 		if s==data.c:
-			data.c="match"
+			dat.c="match"
 		else:
-			data.c="did not match"
-		pub.publish(data)
+			dat.c="did not match"
+		dat.a=data.a
+		dat.b=data.b
+		pub.publish(dat)
 	if __name__ == '__main__':
 		try:
 			matching()
